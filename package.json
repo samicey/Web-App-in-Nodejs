@@ -1,0 +1,25 @@
+{
+  "name": "web-app-in-nodejs",
+  "version": "1.0.0",
+  "description": "A node application with nodejs, expressjs and Mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samicey/Web-App-in-Nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samicey/Web-App-in-Nodejs/issues"
+  },
+  "homepage": "https://github.com/samicey/Web-App-in-Nodejs#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
