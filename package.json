@@ -4,13 +4,16 @@
   "description": "A node application with nodejs, expressjs and Mysql",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test":  "echo \"Error: no test specified\" && exit 1",
+    "start": "set DEBUG=app & node app.js",
+    "poststart":"start http://localhost:4200",
+    "lint":  "eslint app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samicey/Web-App-in-Nodejs.git"
   },
-  "author": "",
+  "author": "sammy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/samicey/Web-App-in-Nodejs/issues"
@@ -25,5 +28,10 @@
     "morgan": "^1.9.1",
     "ms": "^2.1.2",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1"
   }
 }
