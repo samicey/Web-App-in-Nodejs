@@ -13,9 +13,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 //  This code serves the static js and css from the node_modules directory in 
 //  order to easily run updates. The program flow first checks in public then 
 //  proceeds to check in other specified directories if the file is not found
-app.use('/public/css', express.static(path.join(__dirname, 'node_modules', 'bootstrap/dist/css')));
-app.use('/public/js', express.static(path.join(__dirname, 'node_modules', 'jquery/dist')));
-app.use('/public/js', express.static(path.join(__dirname, 'node_modules', 'bootstrap/dist/js')));
+app.use('/css', express.static(path.join(__dirname, 'node_modules', 'bootstrap/dist/css')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules', 'jquery/dist')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules', 'bootstrap/dist/js')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs')
 
