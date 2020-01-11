@@ -4,10 +4,10 @@
   "description": "A node application with nodejs, expressjs and Mysql",
   "main": "index.js",
   "scripts": {
-    "test":  "echo \"Error: no test specified\" && exit 1",
-    "start": "set DEBUG=app & node app.js",
-    "poststart":"start http://localhost:4200",
-    "lint":  "eslint app.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set DEBUG=app & nodemon app.js",
+    "poststart": "start http://localhost:4200",
+    "lint": "eslint app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "bootstrap": "^4.4.1",
     "chalk": "^3.0.0",
     "debug": "^4.1.1",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "morgan": "^1.9.1",
@@ -33,5 +34,14 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1"
+  },
+  "restartable": "rs",
+  "ignore": [
+    "node_modules/**/node_modules"
+  ],
+  "delay": "2500",
+  "env": {
+    "NODE_ENV": "development",
+    "PORT": 8080
   }
 }
