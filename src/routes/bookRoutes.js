@@ -1,6 +1,8 @@
 const express = require('express')
 const bookRouter = express.Router();
 
+function router(nav){
+    
 const books = [
 {
 title: 'War and Peace',
@@ -71,13 +73,10 @@ imageUrl: 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d
 
 bookRouter.route('/')
 .get((req,res)=>{
-   res.render('books', 
+   res.render('bookListView', 
              {
-      nav:[
-          {links:'/books',title:'Books'},
-          {links:'/authors',title:'Authors'}
-      ],
-      title:'Library',
+      nav,
+      title:'Books',
        books
   }
             );
@@ -85,17 +84,15 @@ bookRouter.route('/')
 
 bookRouter.route('/:id')
 .get((req,res)=>{
-    const id = req.params.id
-    res.render('books', 
+    const { id } = req.params
+    res.render('bookView', 
              {
-      nav:[
-          {links:'/books',title:'Books'},
-          {links:'/authors',title:'Authors'}
-      ],
-      title:'Library',
+      nav,
+      title:'Books',
        book:books[id]
   }
             );
 });
-
-module.exports = bookRouter;
+return bookRouter;
+}
+module.exports = router;

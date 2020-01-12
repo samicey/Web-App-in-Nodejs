@@ -4,7 +4,7 @@ const chalk = require('chalk');// to set colors to codes
 const debug = require('debug')('app');// for stronger debugging capabillities
 const morgan = require('morgan');// morgan is used to log out web requests to your console
 
-const bookRouter = require('./src/routes/bookRoutes')
+
 
 const app = express();
 
@@ -20,6 +20,12 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules', 'jquery/dist'
 app.use('/js', express.static(path.join(__dirname, 'node_modules', 'bootstrap/dist/js')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+
+const nav = [
+          {links:'/books',title:'Book'},
+          {links:'/authors',title:'Author'}
+      ]
+const bookRouter = require('./src/routes/bookRoutes')(nav);
 
 app.use('/books',bookRouter);
 
