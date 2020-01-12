@@ -4,6 +4,8 @@ const chalk = require('chalk');// to set colors to codes
 const debug = require('debug')('app');// for stronger debugging capabillities
 const morgan = require('morgan');// morgan is used to log out web requests to your console
 
+const bookRouter = require('./src/routes/bookRoutes')
+
 const app = express();
 
 //  MIDDLEWARES
@@ -17,12 +19,22 @@ app.use('/css', express.static(path.join(__dirname, 'node_modules', 'bootstrap/d
 app.use('/js', express.static(path.join(__dirname, 'node_modules', 'jquery/dist')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules', 'bootstrap/dist/js')));
 app.set('views', './src/views');
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+
+app.use('/books',bookRouter);
 
 const PORT = process.env.PORT || 4200;
 
 app.get('/', (req, res) => {
-  res.render('index', {title:'Library'});
+  res.render('index', 
+             {
+      nav:[
+          {links:'/books',title:'Books'},
+          {links:'/authors',title:'Authors'}
+      ],
+      title:'Library'
+  }
+            );
 });
 app.listen(PORT, () => {
   debug(`App listening on PORT ${chalk.green(PORT)}`);
