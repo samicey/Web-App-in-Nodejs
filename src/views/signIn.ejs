@@ -6,12 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -93,8 +93,8 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              Sign Up! Or <a href="/auth/signin">Sign In</a>
-              <form name="signUpForm" action="/auth/signUp" method="post">
+              <p>Sign In!</p>
+              <form name="signUpForm" action="/auth/signin" method="post">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Username</label>
                   <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter Username">
@@ -103,7 +103,7 @@
                   <label for="exampleInputPassword1">Password</label>
                   <input name="password" type="text" class="form-control" id="password" placeholder="Password">
                 </div>
-                <input type="submit" class="btn btn-primary" value="Sign Up">
+                <input type="submit" class="btn btn-primary" value="Sign In">
               </form>
             </div>
           </div>
@@ -167,6 +167,6 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>

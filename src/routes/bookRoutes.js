@@ -1,98 +1,65 @@
-const express = require('express')
+const express = require("express");
 const bookRouter = express.Router();
+const { MongoClient, ObjectID } = require("mongodb");
+const debug = require("debug")("app:bookRoutes");
 
-function router(nav){
-    
-const books = [
-{
-title: 'War and Peace',
-genre: 'Historical Fiction',
-author: 'Lev Nikolayevich Tolstoy',
-read: false,
-bookId: 656,
-imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1413215930l/656._SX98_.jpg'
-},
-{
-title: 'Les Misérables',
-genre: 'Historical Fiction',
-author: 'Victor Hugo',
-read: false,
-bookId: 24280,
-imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1411852091l/24280._SY160_.jpg'
-},
-{
-title: 'The Time Machine',
-genre: 'Science Fiction',
-author: 'H. G. Wells',
-read: false,
-bookId: 2493,
-imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327942880l/2493._SX98_.jpg'
-},
-{
-title: 'A Journey into the Center of the Earth',
-genre: 'Science Fiction',
-author: 'Jules Verne',
-read: false,
-bookId: 46158888,
-imageUrl: 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png'
-},
-{
-title: 'The Dark World',
-genre: 'Fantasy',
-author: 'Henry Kuttner',
-read: false,
-bookId: 1881716,
-imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1322680910l/1881716._SX98_.jpg'
-},
-{
-title: 'The Wind in the Willows',
-genre: 'Fantasy',
-author: 'Kenneth Grahame',
-read: false,
-bookId: 3165100,
-imageUrl: 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png'
-},
-{
-title: 'Life On The Mississippi',
-genre: 'History',
-author: 'Mark Twain',
-read: false,
-bookId: 49934097,
-imageUrl: 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png'
-},
-{
-title: 'Childhood',
-genre: 'Biography',
-author: 'Lev Nikolayevich Tolstoy',
-read: false,
-bookId: 2359878,
-imageUrl: 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png'
-}
-];
+function router(nav) {
+  bookRouter.route("/").get((req, res) => {
+    const url = "mongodb://localhost:27017";
+    const dbName = "libraryApp";
 
+    (async function mongo() {
+      let client;
+      try {
+        client = await MongoClient.connect(url, { useUnifiedTopology: true });
+        debug("Connected to the server!!");
 
-bookRouter.route('/')
-.get((req,res)=>{
-   res.render('bookListView', 
-             {
-      nav,
-      title:'Books',
-       books
-  }
-            );
-});
+        const db = client.db(dbName);
 
-bookRouter.route('/:id')
-.get((req,res)=>{
-    const { id } = req.params
-    res.render('bookView', 
-             {
-      nav,
-      title:'Books',
-       book:books[id]
-  }
-            );
-});
-return bookRouter;
+        const col = await db.collection("books");
+
+        const books = await col.find().toArray();
+        res.render("bookListView", {
+          nav,
+          title: "Books",
+          books
+        });
+      } catch (error) {
+        debug(error.stack);
+      }
+
+      client.close();
+    })();
+  });
+
+  bookRouter.route("/:id").get((req, res) => {
+    const { id } = req.params;
+    const url = "mongodb://localhost:27017";
+    const dbName = "libraryApp";
+
+    (async function mongo() {
+      let client;
+      try {
+        client = await MongoClient.connect(url, { useUnifiedTopology: true });
+        debug("Connected to the server!!");
+
+        const db = client.db(dbName);
+
+        const col = await db.collection("books");
+
+        const book = await col.findOne({ _id: new ObjectID(id) });
+
+        debug(book)
+        res.render("bookView", {
+          nav,
+          title: "Books",
+          book
+        });
+      } catch (error) {
+        debug(error.stack);
+      }
+    }());
+  });
+  return bookRouter;
 }
 module.exports = router;
