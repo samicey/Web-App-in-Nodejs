@@ -57,7 +57,8 @@ app.get("/", (req, res) => {
   res.render("index", {
     nav: [
       { links: "/books", title: "Books" },
-      { links: "/authors", title: "Authors" }
+      { links: "/authors", title: "Authors" },
+      { links: "/auth/logout", title: "Logout" }      
     ],
     title: "Library"
   });
