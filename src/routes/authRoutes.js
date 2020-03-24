@@ -1,4 +1,3 @@
-const express = require("express");
 const authRouter = require("express").Router();
 const { MongoClient } = require("mongodb");
 const debug = require("debug")("app:authRoutes");

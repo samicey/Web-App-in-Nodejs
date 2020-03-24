@@ -1,0 +1,22 @@
+2020-03-24T11:52:29.992812800 0.019815s notice: In recursion: removing file 'C:\\Users\\Maddison\\Desktop\\Completed Works\\Web-App-in-Nodejs\\rethinkdb_data\\tmp'
+2020-03-24T11:52:29.993812300 0.021108s warn: Trying to delete non-existent file 'C:\\Users\\Maddison\\Desktop\\Completed Works\\Web-App-in-Nodejs\\rethinkdb_data\\tmp'
+2020-03-24T11:52:29.995810800 0.023091s notice: Initializing directory C:\\Users\\Maddison\\Desktop\\Completed Works\\Web-App-in-Nodejs\\rethinkdb_data
+2020-03-24T11:52:29.997809900 0.024728s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory 'C:\\Users\\Maddison\\Desktop\\Completed Works\\Web-App-in-Nodejs\\rethinkdb_data' did not already exist or is empty.)
+2020-03-24T11:52:29.997809901 0.025105s notice: Running rethinkdb 2.3.6-windows (MSC 190024215)...
+2020-03-24T11:52:29.997809902 0.025261s notice: Running on 6.2.9200 (Windows 8, Server 2012)
+2020-03-24T11:52:29.997809903 0.025365s notice: Loading data from directory C:\\Users\\Maddison\\Desktop\\Completed Works\\Web-App-in-Nodejs\\rethinkdb_data
+2020-03-24T11:52:30.936852700 0.963767s info: Automatically using cache size of 124 MB
+2020-03-24T11:52:30.942827100 0.969780s notice: Listening for intracluster connections on port 29015
+2020-03-24T11:52:30.965815200 0.992725s notice: Listening for client driver connections on port 28015
+2020-03-24T11:52:30.965815201 0.993056s notice: Listening for administrative HTTP connections on port 8080
+2020-03-24T11:52:30.965815202 0.993060s notice: Listening on cluster address: 127.0.0.1
+2020-03-24T11:52:30.965815203 0.993065s notice: Listening on driver address: 127.0.0.1
+2020-03-24T11:52:30.965815204 0.993067s notice: Listening on http address: 127.0.0.1
+2020-03-24T11:52:30.965815205 0.993070s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-03-24T11:52:30.965815206 0.993074s notice: Server ready, "DESKTOP_DBIJ9HO_t8u" 73b62d4a-2452-4bbb-93d4-4c7b7c6ecf99
+2020-03-24T11:52:34.750351500 4.778009s notice: A newer version of the RethinkDB server is available: 2.4.0. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2020-03-24T11:52:47.772147500 17.799034s notice: Server got Control-C; shutting down...
+2020-03-24T11:52:47.786602100 17.813745s notice: Shutting down client connections...
+2020-03-24T11:52:47.791620800 17.819101s notice: All client connections closed.
+2020-03-24T11:52:47.791620801 17.819111s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-03-24T11:52:47.906791600 17.933866s notice: Storage engine shut down.

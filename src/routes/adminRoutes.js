@@ -98,7 +98,7 @@ function router(nav) {
         debug("Connected to the server!!");
 
         const db = client.db(dbName);
-        await db.collection("books").deleteMany({});
+        await db.collection("books").deleteMany({})
         const response = await db.collection("books").insertMany(books);
 
         res.json(response);
